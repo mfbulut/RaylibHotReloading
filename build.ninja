@@ -1,0 +1,13 @@
+cflags = -Wall -Wextra -I deps/raylib/include
+ldflags = -L deps/raylib/lib -lraylib
+
+rule cc
+  command = zig cc $cflags $ldflags $in -o bin/$out
+
+rule cc_shared
+  command = zig cc -shared $cflags $ldflags $in -o bin/$out
+
+build game.exe: cc src/main.c src/utils.c
+build game.dll: cc_shared src/game.c
+
+default game.exe game.dll
