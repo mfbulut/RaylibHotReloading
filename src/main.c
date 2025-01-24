@@ -20,7 +20,8 @@ int main() {
     float textOffsetY = 0.0f;
 
     while (!WindowShouldClose()) {
-        if (UpdateGame(&message)) {
+        if (UpdateGame(&message)) { 
+            // Error handling
             float wheel = GetMouseWheelMove();
 
             if(IsKeyDown(KEY_LEFT_ALT)) {
